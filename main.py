@@ -26,7 +26,6 @@ def get_closest_destination(starting_location, possible_destinations, api_key):
 def main():
     #uncomment below line when you want to update db
     #excel_sheets_to_sqlite('maindb.xlsx', 'data.db')
-    choice = input("enter 1 for research sheet or 2 for main database: ")
     state = input("Enter state: ").lower()
     addresses = get_all_addresses('data.db', state)
     if addresses[0] is None:
