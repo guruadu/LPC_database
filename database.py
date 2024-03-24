@@ -5,13 +5,10 @@ def get_all_addresses(db_file, table_name):
     try:
         conn = sqlite3.connect(db_file)
         cursor = conn.cursor()
-        cursor.execute(f"SELECT address FROM {table_name}")
+        cursor.execute(f"SELECT address FROM [{table_name}]")
         addresses = cursor.fetchall()
-        if addresses:
-            addresses = [address[0] for address in addresses]
-            return addresses
-        else:
-            print("No addresses found in the table.")
+        addresses = [address[0] for address in addresses if address[0] is not None]
+        return addresses
     except sqlite3.Error as e:
         print("Error fetching addresses:", e)
     finally:
@@ -34,7 +31,7 @@ def get_ngo_name(db_file, address, table_name):
     try:
         conn = sqlite3.connect(db_file)
         cursor = conn.cursor()
-        cursor.execute(f"SELECT `NGO Name`, `Phone No.`, `E-mail`, Address, Comments FROM {table_name} WHERE address = ?", (address,))
+        cursor.execute(f"SELECT `NGO Name`, `Phone No.`, `E-mail`, Address, Comments FROM [{table_name}] WHERE Address = ?", (address,))
         ngo_details = cursor.fetchall()
         return ngo_details
     except sqlite3.Error as e:
