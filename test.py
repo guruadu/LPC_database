@@ -6,12 +6,12 @@ from main import *
 from database import *
 
 def main():
-   state = "uttar pradesh"
+   state = "delhi"
    addresses = get_all_addresses('data.db', state)
    if not addresses:
       print("no addresses in table for this state")
       exit()
-   starting_location = "St. Lawrence International School, Para Lucknow"
+   starting_location = "Salaria officers enclave, dwarka"
    addresses_with_distance = get_closest_destination(starting_location, addresses, API_KEY)
    
    for i, (address, distance) in enumerate(addresses_with_distance[:5]):
