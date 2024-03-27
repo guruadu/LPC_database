@@ -5,7 +5,7 @@ import googlemaps
 from database import *
 
 load_dotenv()
-API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
+API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")
 
 app = Flask(__name__)
 
