@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block head %}
+   <title>Form Example</title>
+{% endblock %}
+
+{% block body %}
+   <form id="locationForm" action="/submit" method="post">
+       <label for="startingLocation">Location:</label>
+       <input type="text" id="startingLocation" name="startingLocation"><br><br>
+       <label for="state">State:</label>
+       <input type="text" id="state" name="state"><br><br>
+       <button type="submit">Submit</button>
+   </form>
+   <div id="output">
+       <h2>Closest NGOs</h2> <!-- Add heading here -->
+       {% if error %}
+           <p>{{ error }}</p>
+       {% else %}
+           <ol> <!-- Start ordered list -->
+               {% for result in results %}
+                   <li> <!-- Start list item -->
+                     <p class="ngo-name">{{ result.ngo_details.0 }}</p>
+                     <p>Phone no.: {{ result.ngo_details.1 }}</p>
+                     <p>Email: {{ result.ngo_details.2 }}</p>
+                     <p>address: {{ result.ngo_details.3 }}</p>
+                     <p>comments: {{ result.ngo_details.4 }}</p>
+                     <p>Distance to the NGO: {{ result.distance }}</p>
+                   </li> <!-- End list item -->
+               {% endfor %}
+           </ol> <!-- End ordered list -->
+       {% endif %}
+   </div>
+{% endblock %}

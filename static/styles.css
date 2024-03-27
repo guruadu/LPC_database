@@ -1,0 +1,71 @@
+/* Styling the form container */
+form {
+   width: 90%; /* Adjust the width relative to the parent container */
+   max-width: 400px; /* Set a maximum width to prevent the form from becoming too wide */
+   margin: 0 auto;
+   padding: 20px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   background-color: #f9f9f9;
+   /* Add border on all sides */
+   border-left: 1px solid #ccc;
+   border-right: 1px solid #ccc;
+}
+
+/* Styling form labels */
+label {
+   display: block;
+   margin-bottom: 10px;
+   font-weight: bold;
+}
+
+/* Styling form inputs */
+input[type="text"] {
+   width: 100%;
+   padding: 8px;
+   margin-bottom: 15px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+}
+
+/* Styling submit button */
+button[type="submit"] {
+   padding: 10px 20px;
+   background-color: #007bff;
+   color: #fff;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+button[type="submit"]:hover {
+   background-color: #0056b3;
+}
+
+/* Styling the output div */
+#output {
+   width: 90%; /* Adjust the width of the output div */
+   max-width: 400px; /* Set a maximum width for the output div */
+   margin: 20px auto; /* Center the output div horizontally with some top margin */
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   background-color: #f9f9f9;
+}
+#output .ngo-name {
+   font-weight: bold; /* Make NGO name bold */
+}
+#output li {
+   margin-bottom: 20px; /* Add space between each list item */
+}
+#output li p {
+   margin: 5px 0; /* Reduce the distance between each detail */
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 600px) {
+   form {
+       width: 90%;
+       max-width: 300px;
+   }
+}
