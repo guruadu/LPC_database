@@ -10,6 +10,11 @@
        <input type="text" id="startingLocation" name="startingLocation"><br><br>
        <label for="state">State:</label>
        <input type="text" id="state" name="state"><br><br>
+       <label for="ngoType">NGO Type:</label>
+       <select id="ngoType" name="ngoType">
+           <option value="data.db">main database</option>
+           <option value="test.db">research sheet</option>
+       </select><br><br>
        <button type="submit">Submit</button>
    </form>
    <div id="output">
@@ -25,7 +30,7 @@
                      <p>Email: {{ result.ngo_details.2 }}</p>
                      <p>address: {{ result.ngo_details.3 }}</p>
                      <p>comments: {{ result.ngo_details.4 }}</p>
-                     <p>Distance to the NGO: {{ result.distance }}</p>
+                     <p>Distance to the NGO: {{ result.distance }} km</p>
                    </li> <!-- End list item -->
                {% endfor %}
            </ol> <!-- End ordered list -->
