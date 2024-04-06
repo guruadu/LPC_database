@@ -17,23 +17,25 @@
        </select><br><br>
        <button type="submit">Submit</button>
    </form>
-   <div id="output">
-       <h2>Closest NGOs</h2> <!-- Add heading here -->
-       {% if error %}
-           <p>{{ error }}</p>
-       {% else %}
-           <ol> <!-- Start ordered list -->
-               {% for result in results %}
-                   <li> <!-- Start list item -->
-                     <p class="ngo-name">{{ result.ngo_details.0 }}</p>
-                     <p>Phone no.: {{ result.ngo_details.1 }}</p>
-                     <p>Email: {{ result.ngo_details.2 }}</p>
-                     <p>address: {{ result.ngo_details.3 }}</p>
-                     <p>comments: {{ result.ngo_details.4 }}</p>
-                     <p>Distance to the NGO: {{ result.distance }} km</p>
-                   </li> <!-- End list item -->
-               {% endfor %}
-           </ol> <!-- End ordered list -->
-       {% endif %}
-   </div>
+   {% if results %}
+       <div id="output"> <!-- Only show the output div if there are results -->
+           <h2>Closest NGOs</h2> <!-- Add heading here -->
+           {% if error %}
+               <p>{{ error }}</p>
+           {% else %}
+               <ol> <!-- Start ordered list -->
+                   {% for result in results %}
+                       <li> <!-- Start list item -->
+                         <p class="ngo-name">{{ result.ngo_details.0 }}</p>
+                         <p>Phone no.: {{ result.ngo_details.1 }}</p>
+                         <p>Email: {{ result.ngo_details.2 }}</p>
+                         <p>address: {{ result.ngo_details.3 }}</p>
+                         <p>comments: {{ result.ngo_details.4 }}</p>
+                         <p>Distance to the NGO: {{ result.distance }} km</p>
+                       </li> <!-- End list item -->
+                   {% endfor %}
+               </ol> <!-- End ordered list -->
+           {% endif %}
+       </div> <!-- End output div -->
+   {% endif %}
 {% endblock %}

@@ -64,5 +64,5 @@ def submit():
     return render_template('index.html', results=results)
 
 if __name__ == "__main__":
-    excel_sheets_to_sqlite('testdb.xlsx','test.db')
+    #excel_sheets_to_sqlite('testdb.xlsx','test.db')
     app.run(debug=True)

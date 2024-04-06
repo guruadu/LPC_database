@@ -4,6 +4,6 @@ RUN apt-get update && apt-get install -y && apt-get clean && rm -rf /var/lib/apt
 COPY . .
 COPY .env .
 RUN pip install --ignore-installed -r ./requirements.txt
-EXPOSE 8080
+EXPOSE 80
 CMD ["python3", "index.py"]
 #could be better if gunicon is used although no difference is made.
